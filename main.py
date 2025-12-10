@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, PhotoImage
 from PIL import ImageTk, Image
 import base64
 
@@ -130,11 +130,12 @@ def get_secret():
 
 # Load image
 try:
-    image = Image.open("secret.png")
-    photo = ImageTk.PhotoImage(image)
-    tk.Label(window, image=photo, bg=bg_color).pack()
-except:
-    pass
+    image = ImageTk.PhotoImage(image=Image.open("secret.jpg"))
+    label4 = tk.Label(image=image)
+    label4.pack()
+except Exception as e:
+    print(e)
+
 
 label1.pack(padx=5, pady=5)
 entry_title.pack(padx=5, pady=5)
