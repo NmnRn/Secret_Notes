@@ -116,7 +116,7 @@ def get_secret():
         decoded_msg = base64.b64decode(encoded).decode("utf-8")
 
         if decoded_msg.endswith(f"_{key}_"):
-            note = decoded_msg.replace(f"_{key}_", "")
+            note = decoded_msg[0:-len(f"_{key}_")]
             text_box.delete("1.0", tk.END)
             text_box.insert(tk.INSERT, note)
         else:
